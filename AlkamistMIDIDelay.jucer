@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="uOvI9j" name="AlkamistMIDIDelay" projectType="audioplug"
+              version="1.0.0" bundleIdentifier="com.AlkamistAudio.AlkamistMIDIDelay"
+              includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="0"
+              buildRTAS="0" buildAAX="0" pluginName="AlkamistMIDIDelay" pluginDesc="AlkamistMIDIDelay"
+              pluginManufacturer="Alkamist Audio" pluginManufacturerCode="AlkA"
+              pluginCode="AlMD" pluginChannelConfigs="{1, 1}, {2, 2}" pluginIsSynth="0"
+              pluginWantsMidiIn="1" pluginProducesMidiOut="1" pluginSilenceInIsSilenceOut="1"
+              pluginEditorRequiresKeys="0" pluginAUExportPrefix="AlkamistMIDIDelayAU"
+              pluginRTASCategory="" aaxIdentifier="com.AlkamistAudio.AlkamistMIDIDelay"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.2.0"
+              companyName="Alkamist Audio">
+  <MAINGROUP id="elMjLv" name="AlkamistMIDIDelay">
+    <GROUP id="{FAD1CBC2-22FD-9ABD-04A6-A2B7E089A941}" name="Source">
+      <FILE id="TWRszh" name="MainEditorWindow.cpp" compile="1" resource="0"
+            file="Source/MainEditorWindow.cpp"/>
+      <FILE id="X0grji" name="MainEditorWindow.h" compile="0" resource="0"
+            file="Source/MainEditorWindow.h"/>
+      <FILE id="DbcpL0" name="MIDIDelay.cpp" compile="1" resource="0" file="Source/MIDIDelay.cpp"/>
+      <FILE id="juPx58" name="MIDIDelay.h" compile="0" resource="0" file="Source/MIDIDelay.h"/>
+      <FILE id="w5TK29" name="FloatParameter.cpp" compile="1" resource="0"
+            file="Source/FloatParameter.cpp"/>
+      <FILE id="xxIqzV" name="FloatParameter.h" compile="0" resource="0"
+            file="Source/FloatParameter.h"/>
+      <FILE id="SlqrtN" name="LinearlySmoothedDouble.cpp" compile="1" resource="0"
+            file="Source/LinearlySmoothedDouble.cpp"/>
+      <FILE id="Ey7PpE" name="LinearlySmoothedDouble.h" compile="0" resource="0"
+            file="Source/LinearlySmoothedDouble.h"/>
+      <FILE id="bjshqG" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="pmUvMI" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="tYJ9FR" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="jlgByC" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2010 targetFolder="Builds/VisualStudio2010" vstFolder="c:\SDKs\vstsdk2.4">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="AlkamistMIDIDelay" postbuildCommand="copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(OutDir)\$(TargetName).vst&quot;&#10;copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;C:\VSTPluginsDebug\$(TargetFileName)&quot;"/>
+        <CONFIGURATION name="Release" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="AlkamistMIDIDelay"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_events" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Programming Documents/JUCE-master/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Programming Documents/JUCE-master/modules"/>
+      </MODULEPATHS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>
