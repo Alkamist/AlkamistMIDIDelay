@@ -62,7 +62,7 @@ MainEditorWindow::MainEditorWindow (AlkamistMIDIDelayAudioProcessor& inputProces
     setAllSliderRanges();
     //[/UserPreSize]
 
-    setSize (240, 128);
+    setSize (104, 128);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -107,8 +107,8 @@ void MainEditorWindow::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    delaySlider->setBounds (64, 40, 104, 88);
-    delayLabel->setBounds (72, 0, 88, 40);
+    delaySlider->setBounds (0, 40, 104, 88);
+    delayLabel->setBounds (8, 0, 88, 40);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -216,16 +216,16 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component, public Timer" constructorParams="AlkamistMIDIDelayAudioProcessor&amp; inputProcessor"
                  variableInitialisers="mParentProcessor (&amp;inputProcessor)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="240" initialHeight="128">
+                 fixedSize="1" initialWidth="104" initialHeight="128">
   <BACKGROUND backgroundColour="ff323232"/>
   <SLIDER name="Delay Slider" id="bd046531e78c1c7" memberName="delaySlider"
-          virtualName="" explicitFocusOrder="0" pos="64 40 104 88" thumbcol="ff909090"
+          virtualName="" explicitFocusOrder="0" pos="0 40 104 88" thumbcol="ff909090"
           trackcol="7fdddddd" rotarysliderfill="7fdddddd" rotaryslideroutline="66dddddd"
           textboxtext="ffdddddd" textboxbkgd="ff4a4a4a" textboxhighlight="40e4e4e4"
           min="0" max="10" int="0.01" style="RotaryVerticalDrag" textBoxPos="TextBoxAbove"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="Delay Label" id="bd41beb649728737" memberName="delayLabel"
-         virtualName="" explicitFocusOrder="0" pos="72 0 88 40" textCol="ffdddddd"
+         virtualName="" explicitFocusOrder="0" pos="8 0 88 40" textCol="ffdddddd"
          edTextCol="ff000000" edBkgCol="0" labelText="Delay (ms)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>

@@ -171,7 +171,7 @@ void AlkamistMIDIDelayAudioProcessor::sendParameterBuffers()
 
         delayParameter->setFlagForSendingFlatBuffer (true);
     }
-    if (delayParameter->parameterNeedsToSendFlatBuffer())
+    else if (delayParameter->parameterNeedsToSendFlatBuffer())
     {
         mMIDIDelay.setDelayTimeInms (delayParameter->getUnNormalizedSmoothedBuffer());
 
