@@ -8,11 +8,11 @@
 AlkamistMIDIDelayAudioProcessor::AlkamistMIDIDelayAudioProcessor()
 {
     double sampleRate = getSampleRate();
-    int samplesPerBlock = getBlockSize();
+    int blockSize = getBlockSize();
 
-    addParameter (delayParameter  = new FloatParameter (0.0f, 0.0f, 100.0f, "Delay", "ms", sampleRate, samplesPerBlock));
+    addParameter (delayParameter  = new FloatParameter (0.0f, 0.0f, 100.0f, "Delay", "ms", sampleRate, blockSize));
 
-    reset();
+    reset (sampleRate, blockSize);
 
     //mMIDIHumanizer.setMaximumDelayTime (PDC_DELAY_TIME);
 
@@ -73,12 +73,12 @@ double AlkamistMIDIDelayAudioProcessor::getTailLengthSeconds() const
 }
 
 //==============================================================================
-void AlkamistMIDIDelayAudioProcessor::prepareToPlay (double /*sampleRate*/, int /*samplesPerBlock*/)
+void AlkamistMIDIDelayAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 
-    reset();
+    reset (sampleRate, samplesPerBlock);
 }
 
 void AlkamistMIDIDelayAudioProcessor::releaseResources()
@@ -184,15 +184,12 @@ void AlkamistMIDIDelayAudioProcessor::clearParameterChanges()
     delayParameter->clearParameterChange();
 }
 
-void AlkamistMIDIDelayAudioProcessor::reset()
+void AlkamistMIDIDelayAudioProcessor::reset (double inputSampleRate, int inputBlockSize)
 {
-    double sampleRate = getSampleRate();
-    int samplesPerBlock = getBlockSize();
-
-    mMIDIDelay.reset (sampleRate, samplesPerBlock);
+    mMIDIDelay.reset (inputSampleRate, inputBlockSize);
 
     // Parameters
-    delayParameter->reset (sampleRate, samplesPerBlock);
+    delayParameter->reset (inputSampleRate, inputBlockSize);
 }
 //==============================================================================
 // This creates new instances of the plugin..
