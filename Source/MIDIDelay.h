@@ -14,7 +14,7 @@ public:
     void reset (double inputSampleRate, int inputBlockSize);
     void processMIDIBuffer (MidiBuffer& inputMIDIBuffer);
 
-    inline void setDelayTime (std::vector<float> inputDelayTime) { mDelayTime = inputDelayTime; };
+    void setDelayTimeInms (std::vector<float> inputDelayTime);
 
 private:
 
@@ -22,6 +22,9 @@ private:
 
     double mSampleRate;
     int mBlockSize;
+
+    std::vector<MidiMessage> mDelayedMIDIBuffer;
+    MidiBuffer mReplacementBuffer;
 
 };
 
