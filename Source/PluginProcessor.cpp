@@ -2,8 +2,6 @@
 #include "FloatParameter.h"
 #include "PluginProcessor.h"
 
-//const int PDC_DELAY_TIME = 1024;
-
 //==============================================================================
 AlkamistMIDIDelayAudioProcessor::AlkamistMIDIDelayAudioProcessor()
 {
@@ -13,10 +11,6 @@ AlkamistMIDIDelayAudioProcessor::AlkamistMIDIDelayAudioProcessor()
     addParameter (delayParameter  = new FloatParameter (0.0f, 0.0f, 100.0f, "Delay", "ms", sampleRate, blockSize));
 
     reset (sampleRate, blockSize);
-
-    //mMIDIHumanizer.setMaximumDelayTime (PDC_DELAY_TIME);
-
-    //setLatencySamples (PDC_DELAY_TIME);
 }
 
 AlkamistMIDIDelayAudioProcessor::~AlkamistMIDIDelayAudioProcessor()
@@ -94,17 +88,6 @@ void AlkamistMIDIDelayAudioProcessor::processBlock (AudioSampleBuffer& buffer, M
 
     mMIDIDelay.processMIDIBuffer (midiMessages);
 
-    /*for (int channel = 0; channel < getNumInputChannels(); ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-
-        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
-        {
-            float temporaryGain = mMIDIDelay.mDelayTime[sample] / 100.0f;
-            channelData[sample] = temporaryGain;
-        }
-    }*/
-
     clearParameterChanges();
 
     for (int index = getNumInputChannels(); index < getNumOutputChannels(); ++index)
@@ -165,17 +148,10 @@ void AlkamistMIDIDelayAudioProcessor::bufferParameters()
 
 void AlkamistMIDIDelayAudioProcessor::sendParameterBuffers()
 {
-    if (delayParameter->parameterChangedThisBlock())
+    if (delayParameter->parameterChangedThisBlock()
+        || delayParameter->parameterNeedsToSendFlatBuffer())
     {
         mMIDIDelay.setDelayTimeInms (delayParameter->getUnNormalizedSmoothedBuffer());
-
-        delayParameter->setFlagForSendingFlatBuffer (true);
-    }
-    else if (delayParameter->parameterNeedsToSendFlatBuffer())
-    {
-        mMIDIDelay.setDelayTimeInms (delayParameter->getUnNormalizedSmoothedBuffer());
-
-        delayParameter->setFlagForSendingFlatBuffer (false);
     }
 }
 

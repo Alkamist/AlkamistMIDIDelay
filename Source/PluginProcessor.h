@@ -53,7 +53,6 @@ public:
 
     //==============================================================================
 
-    void midiHumanizerCallback();
     void reset (double inputSampleRate, int inputBlockSize);
 
     FloatParameter* delayParameter;

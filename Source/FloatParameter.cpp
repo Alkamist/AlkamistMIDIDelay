@@ -19,7 +19,7 @@ FloatParameter::FloatParameter (float defaultParameterValue,
       mLinearlySmoothedDouble (defaultParameterValue),
       mParameterChangedThisBlock (false),
       mParameterWasReset (false),
-      mParameterNeedsToSendFlatBuffer (true),
+      mParameterNeedsToSendFlatBuffer (false),
       mSampleRate (inputSampleRate),
       mBlockSize (inputBlockSize)
 {
@@ -61,12 +61,19 @@ void FloatParameter::setNormalizedValue (float nonNormalizedValue)
 
 void FloatParameter::clearParameterChange()                                      
 { 
+    if (mParameterNeedsToSendFlatBuffer)
+    {
+        mParameterNeedsToSendFlatBuffer = false;
+    }
+
     if (mParameterChangedThisBlock)
     {
         for (int index = 0; index < mBlockSize; ++index)
         {
             mParameterBuffer[index] = mUnSmoothedParameterValue;
         }
+
+        mParameterNeedsToSendFlatBuffer = true;
     }
 
     mParameterChangedThisBlock = false; 
