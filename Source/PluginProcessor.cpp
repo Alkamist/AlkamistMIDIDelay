@@ -166,6 +166,8 @@ void AlkamistMIDIDelayAudioProcessor::reset (double inputSampleRate, int inputBl
 
     // Parameters
     delayParameter->reset (inputSampleRate, inputBlockSize);
+
+    delayParameter->signalForParameterChange();
 }
 //==============================================================================
 // This creates new instances of the plugin..

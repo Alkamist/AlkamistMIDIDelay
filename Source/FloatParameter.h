@@ -22,6 +22,7 @@ public:
     void reset (double inputSampleRate, int inputBlockSize);
 
     inline bool parameterChangedThisBlock()                                 { return mParameterChangedThisBlock; };
+    inline void signalForParameterChange()                                  { mParameterChangedThisBlock = true; };
     void clearParameterChange();
 
     inline bool parameterNeedsToSendFlatBuffer()                            { return mParameterNeedsToSendFlatBuffer; };
